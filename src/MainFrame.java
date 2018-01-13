@@ -1,9 +1,12 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -12,6 +15,7 @@ import javax.swing.JLabel;
 public class MainFrame extends javax.swing.JFrame {
     
     private int diffX = -1, diffY = -1;
+    private JLabel lblInfo;
     private String firstValue = "0";
     private String secondValue = "";
     private String op = "";
@@ -19,13 +23,74 @@ public class MainFrame extends javax.swing.JFrame {
     private String leftDisplay = "", 
             opDisplay = "", 
             rightDisplay = "";
+
     
     public MainFrame() {
         initComponents();
         setLocationRelativeTo(null);
-        setAlwaysOnTop(true);
         lblScreen.setText(firstValue);
         lblStatus.setText("");
+        lblInfo = new JLabel(
+            "<html>\n" +
+            "  <head>\n" +
+            "    <style type=\"text/css\">\n" +
+            "      body {\n" +
+            "        padding: 8px;\n" +
+            "        font-family: arial;\n" +
+            "        font-size: 10px;\n" +
+            "        color: black;\n" +
+            "        background-color: white;\n" +
+            "        width: 600px;\n" +
+            "      }\n" +
+            "      table {border-collapse: collapse;}\n" +
+            "      td {border: 1px solid black; padding: 1px 8px; font-size:10px;}\n" +
+            "    </style>\n" +
+            "  </head>\n" +
+            "  <body>\n" +
+            "    <h1 style=\"text-align: center;\">\n" +
+            "      Calculator <span style=\"color: rgb(17,214,214);\">Jaman Now</span>\n" +
+            "    </h1>\n" +
+            "    <p style=\"text-align: justify\">\n" +
+            "      Calculator <span style=\"color: rgb(17,214,214);\">Jaman Now</span> adalah sebuah aplikasi kalkulator sederhana \n" +
+            "      dengan fitur-fitur standar untuk operasi matematika dasar.\n" +
+            "      Fitur-fitur aplikasi ini dibuat sedemikian rupa agar menyerupai\n" +
+            "      kalkulator analog yang dimana tentunya semua orang sudah nyaman menggunakan\n" +
+            "      kalkulator jenis ini.\n" +
+            "      Aplikasi ini juga merupakan sebuah realisasi dari tugas yang\n" +
+            "      diberikan oleh Pak Felix Valentine selaku dosen saya dalam mata kuliah \n" +
+            "      \"Pengembangan Aplikasi\".\n" +
+            "    </p>\n" +
+            "    <br/>\n" +
+            "    <p style=\"text-align: justify\">\n" +
+            "      Cara menggunakan kalkulator ini tentu sudah sangat jelas, yaitu\n" +
+            "      dengan mengklik tombol-tombol yang telah disediakan. Disamping itu, \n" +
+            "      Calculator <span style=\"color: rgb(17,214,214);\">Jaman Now</span> juga mendukung input melalui keyboard. <br/>\n" +
+            "    </p>\n" +
+            "    <br/>\n" +
+            "    <p>\n" +
+            "      Berikut adalah relasi antara tombol keyboard dengan tombol kalkulator:\n" +
+            "    </p>\n" +
+            "    <br/>\n" +
+            "    <table>\n" +
+            "      <tr><td>0-9</td><td>angka 0-9</td></tr>\n" +
+            "      <tr><td>.</td><td>tanda koma</td></tr>\n" +
+            "      <tr><td>m, M</td><td>invers(positif/negatif)</td></tr>\n" +
+            "      <tr><td>+</td><td>operasi pertambahan</td></tr>\n" +
+            "      <tr><td>-</td><td>operasi pengurangan</td></tr>\n" +
+            "      <tr><td>*, x, X</td><td>operasi perkalian</td></tr>\n" +
+            "      <tr><td>/</td><td>operasi pembagian</td></tr>\n" +
+            "      <tr><td>%</td><td>operasi modulo</td></tr>\n" +
+            "      <tr><td>q, Q</td><td>operasi pemangkatan (pangkat n)</td></tr>\n" +
+            "      <tr><td>w, W</td><td>operasi pemangkatan kuadrat (pangkat 2)</td></tr>\n" +
+            "      <tr><td>e, E</td><td>operasi akar kuadrat (pangkat 2)</td></tr>\n" +
+            "      <tr><td>r, R</td><td>operasi pengakaran (pangkat n)</td></tr>\n" +
+            "      <tr><td>=, ENTER</td><td>perintah \"hitung\"</td></tr>\n" +
+            "      <tr><td>c, C, DELETE</td><td>perintah \"hapus layar\"</td></tr>\n" +
+            "      <tr><td>BACKSPACE</td><td>perintah \"hapus angka terakhir\"</td></tr>\n" +
+            "    </table>\n" +
+            "  </body>\n" +
+            "</html>"
+        );
     }
 
     @SuppressWarnings("unchecked")
@@ -814,7 +879,12 @@ public class MainFrame extends javax.swing.JFrame {
         } else if (titleBtn == btnMinimize) {
             this.setState(JFrame.ICONIFIED);
         } else if (titleBtn == btnAbout) {
-            
+            JOptionPane.showMessageDialog(
+                    this,
+                    lblInfo,
+                    "Info",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
         }
     }//GEN-LAST:event_titleButtonMouseClicked
 
