@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -102,9 +105,15 @@ public class MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(320, 420));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(320, 420));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         pnlTitle.setBackground(new java.awt.Color(51, 51, 51));
+        pnlTitle.setFocusable(false);
         pnlTitle.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 pnlTitleMouseDragged(evt);
@@ -143,14 +152,14 @@ public class MainFrame extends javax.swing.JFrame {
         btnMinimize.setText("-");
         btnMinimize.setOpaque(true);
         btnMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                titleButtonMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 titleButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 titleButtonMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                titleButtonMouseClicked(evt);
             }
         });
         pnlTitle.add(btnMinimize);
@@ -163,14 +172,14 @@ public class MainFrame extends javax.swing.JFrame {
         btnClose.setText("X");
         btnClose.setOpaque(true);
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                titleButtonMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 titleButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 titleButtonMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                titleButtonMouseClicked(evt);
             }
         });
         pnlTitle.add(btnClose);
@@ -183,14 +192,14 @@ public class MainFrame extends javax.swing.JFrame {
         btnAbout.setText("?");
         btnAbout.setOpaque(true);
         btnAbout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                titleButtonMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 titleButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 titleButtonMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                titleButtonMouseClicked(evt);
             }
         });
         pnlTitle.add(btnAbout);
@@ -204,6 +213,7 @@ public class MainFrame extends javax.swing.JFrame {
         lblScreen.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblScreen.setText("0");
         lblScreen.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        lblScreen.setFocusable(false);
         lblScreen.setOpaque(true);
         getContentPane().add(lblScreen);
         lblScreen.setBounds(0, 30, 320, 60);
@@ -214,6 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnPlus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnPlus.setText("+");
         btnPlus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnPlus.setFocusable(false);
         btnPlus.setOpaque(true);
         btnPlus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -235,6 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn9.setText("9");
         btn9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn9.setFocusable(false);
         btn9.setOpaque(true);
         btn9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -256,6 +268,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnDot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnDot.setText(".");
         btnDot.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnDot.setFocusable(false);
         btnDot.setOpaque(true);
         btnDot.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -277,6 +290,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn0.setText("0");
         btn0.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn0.setFocusable(false);
         btn0.setOpaque(true);
         btn0.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -298,16 +312,17 @@ public class MainFrame extends javax.swing.JFrame {
         btnEqual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnEqual.setText("=");
         btnEqual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnEqual.setFocusable(false);
         btnEqual.setOpaque(true);
         btnEqual.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEqualMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 calcBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 calcBtnMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEqualMouseClicked(evt);
             }
         });
         getContentPane().add(btnEqual);
@@ -319,6 +334,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn1.setText("1");
         btn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn1.setFocusable(false);
         btn1.setOpaque(true);
         btn1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -340,6 +356,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn4.setText("4");
         btn4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn4.setFocusable(false);
         btn4.setOpaque(true);
         btn4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -361,6 +378,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn5.setText("5");
         btn5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn5.setFocusable(false);
         btn5.setOpaque(true);
         btn5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -382,6 +400,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn6.setText("6");
         btn6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn6.setFocusable(false);
         btn6.setOpaque(true);
         btn6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -403,6 +422,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnMinus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnMinus.setText("-");
         btnMinus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnMinus.setFocusable(false);
         btnMinus.setOpaque(true);
         btnMinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -424,6 +444,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn2.setText("2");
         btn2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn2.setFocusable(false);
         btn2.setOpaque(true);
         btn2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -445,16 +466,17 @@ public class MainFrame extends javax.swing.JFrame {
         btnDel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnDel.setText("=>");
         btnDel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnDel.setFocusable(false);
         btnDel.setOpaque(true);
         btnDel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                delBtnClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 calcBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 calcBtnMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                delBtnClicked(evt);
             }
         });
         getContentPane().add(btnDel);
@@ -466,6 +488,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn8.setText("8");
         btn8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn8.setFocusable(false);
         btn8.setOpaque(true);
         btn8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -487,6 +510,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn3.setText("3");
         btn3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn3.setFocusable(false);
         btn3.setOpaque(true);
         btn3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -512,6 +536,7 @@ public class MainFrame extends javax.swing.JFrame {
             "</body>" +
             "</html>");
         btnXN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnXN.setFocusable(false);
         btnXN.setOpaque(true);
         btnXN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -533,6 +558,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnCross.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCross.setText("x");
         btnCross.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnCross.setFocusable(false);
         btnCross.setOpaque(true);
         btnCross.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -554,6 +580,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnSlash.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSlash.setText("/");
         btnSlash.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnSlash.setFocusable(false);
         btnSlash.setOpaque(true);
         btnSlash.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -579,6 +606,7 @@ public class MainFrame extends javax.swing.JFrame {
             "</body>" +
             "</html>");
         btnRoot.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnRoot.setFocusable(false);
         btnRoot.setOpaque(true);
         btnRoot.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -604,6 +632,7 @@ public class MainFrame extends javax.swing.JFrame {
             "</body>" +
             "</html>");
         btnSqrt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnSqrt.setFocusable(false);
         btnSqrt.setOpaque(true);
         btnSqrt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -629,6 +658,7 @@ public class MainFrame extends javax.swing.JFrame {
             "</body>" +
             "</html>");
         btnX2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnX2.setFocusable(false);
         btnX2.setOpaque(true);
         btnX2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -651,6 +681,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn7.setText("7");
         btn7.setToolTipText("[14,205,205]");
         btn7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btn7.setFocusable(false);
         btn7.setOpaque(true);
         btn7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -672,6 +703,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnClr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnClr.setText("CLR");
         btnClr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnClr.setFocusable(false);
         btnClr.setOpaque(true);
         btnClr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -693,6 +725,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnMod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnMod.setText("MOD");
         btnMod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnMod.setFocusable(false);
         btnMod.setOpaque(true);
         btnMod.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -714,6 +747,7 @@ public class MainFrame extends javax.swing.JFrame {
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblStatus.setText("jLabel1");
         lblStatus.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        lblStatus.setFocusable(false);
         lblStatus.setOpaque(true);
         lblStatus.setPreferredSize(new java.awt.Dimension(320, 30));
         getContentPane().add(lblStatus);
@@ -725,6 +759,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnToggle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnToggle.setText("+/-");
         btnToggle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnToggle.setFocusable(false);
         btnToggle.setOpaque(true);
         btnToggle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -944,7 +979,47 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_unaOpMouseReleased
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        int code = evt.getKeyCode();
+        char ch = evt.getKeyChar();
+        
+        if (ch == '0') invoke(btn0);
+        else if (ch == '1') invoke(btn1);
+        else if (ch == '2') invoke(btn2);
+        else if (ch == '3') invoke(btn3);
+        else if (ch == '4') invoke(btn4);
+        else if (ch == '5') invoke(btn5);
+        else if (ch == '6') invoke(btn6);
+        else if (ch == '7') invoke(btn7);
+        else if (ch == '8') invoke(btn8);
+        else if (ch == '9') invoke(btn9);
+        else if (ch == '.') invoke(btnDot);
+        else if (ch == 'm' || ch == 'M') invoke(btnToggle);
+        
+        else if (ch == '/') invoke(btnSlash);
+        else if (ch == '*' || ch == 'x' || ch == 'X') invoke(btnCross);
+        else if (ch == '-') invoke(btnMinus);
+        else if (ch == '+') invoke(btnPlus);
+        else if (ch == '=' || ch == '\n') invoke(btnEqual);
+        
+        else if (ch=='c'||ch=='C'||code==KeyEvent.VK_DELETE) invoke(btnClr);
+        else if (ch == '%') invoke(btnMod);
+        else if (code == KeyEvent.VK_BACK_SPACE) invoke(btnDel);
+        
+        else if (ch == 'q' || ch == 'Q') invoke(btnXN);
+        else if (ch == 'w' || ch == 'W') invoke(btnX2);
+        else if (ch == 'e' || ch == 'E') invoke(btnSqrt);
+        else if (ch == 'r' || ch == 'R') invoke(btnRoot);
+    }//GEN-LAST:event_formKeyPressed
+
     //my private helper methods
+    private void invoke(JLabel btn) {
+        for (MouseListener ml : btn.getMouseListeners()) {
+            ml.mouseReleased(
+                new MouseEvent(btn, 0, 0, 0, 0, 0, 1, true)
+            );
+        }
+    }
     private void updateExpStatus(String a, String b, String c) {
         if (a != null) leftDisplay = a;
         if (b != null) opDisplay = b;
@@ -955,6 +1030,11 @@ public class MainFrame extends javax.swing.JFrame {
             rightDisplay = getScreenFinalFormat(Double.parseDouble(rightDisplay));
         if (opDisplay.contains("x<sup>n</sup>")) {
             lblStatus.setText(leftDisplay+"^"+rightDisplay);
+            lblStatus.setText(String.format(
+                    "(%s)^%s",
+                    leftDisplay,
+                    rightDisplay
+            ));
         } else if (opDisplay.contains("<sup>n</sup>&radic")) {
             lblStatus.setText(String.format(
                     "root%s(%s)",
